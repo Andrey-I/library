@@ -1,7 +1,6 @@
 package org.teonit.library.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.Index;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -19,7 +18,6 @@ public class Book {
 	@GraphId
 	private Long id;
 
-	@Index(unique = true)
 	private String isbn;
 	
 	private String name;

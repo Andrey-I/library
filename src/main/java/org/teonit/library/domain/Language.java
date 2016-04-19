@@ -1,7 +1,6 @@
 package org.teonit.library.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.Index;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
@@ -15,8 +14,7 @@ public class Language {
 
 	@GraphId
 	private Long id;
-
-	@Index(unique = true)
+	
 	private String code;
 
 	private String name;
