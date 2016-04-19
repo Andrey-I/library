@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class TestApplicationConfig extends ApplicationConfig {
+public class TestApplicationConfig extends DataConfig {
 	
 	@Bean
 	public org.neo4j.ogm.config.Configuration getConfiguration() {
