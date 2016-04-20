@@ -68,4 +68,10 @@ public class Organization {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Organization [id=" + id + ", name=" + name + "]";
+	}
+
+	
 }

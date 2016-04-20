@@ -162,4 +162,11 @@ public class Book {
 		this.numberOfPages = numberOfPages;
 	}
 
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", isbn=" + isbn + ", name=" + name + ", url=" + url + ", description=" + description
+				+ ", publisher=" + publisher + ", inLanguage=" + inLanguage + ", numberOfPages=" + numberOfPages + "]";
+	}
+
+	
 }

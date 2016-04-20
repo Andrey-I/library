@@ -3,6 +3,8 @@ package org.teonit.library.domain;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * This class represents language.
  *
@@ -13,6 +15,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 public class Language {
 
 	@GraphId
+	@JsonIgnore
 	private Long id;
 	
 	private String code;
@@ -81,4 +84,10 @@ public class Language {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "Language [id=" + id + ", code=" + code + ", name=" + name + "]";
+	}
+	
+	
 }

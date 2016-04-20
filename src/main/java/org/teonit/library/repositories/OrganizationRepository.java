@@ -12,5 +12,6 @@ import org.teonit.library.domain.Organization;
 public interface OrganizationRepository extends GraphRepository<Organization> {
 
 	Iterable<Organization> findByNameLike(String name);
+	Organization findByName(String name);
 
 }
