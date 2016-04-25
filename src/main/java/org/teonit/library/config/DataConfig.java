@@ -27,8 +27,8 @@ public class DataConfig extends Neo4jConfiguration {
 		org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
 	   config
 	       .driverConfiguration()
-	       .setDriverClassName(env.getProperty("library.neo4j.driver","org.neo4j.ogm.drivers.http.driver.HttpDriver"))
-	       .setURI(env.getProperty("library.neo4j.URI","http://localhost:7474"))
+	       .setDriverClassName(env.getProperty("library.neo4j.driver"))
+	       .setURI(env.getProperty("library.neo4j.URI"))
 	       .setCredentials(env.getProperty("library.neo4j.user"),env.getProperty("library.neo4j.password"));
 	   return config;
 	}

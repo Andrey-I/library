@@ -2,6 +2,8 @@ package org.teonit.library.api;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +17,8 @@ import org.teonit.library.repositories.LanguageRepository;
 @RequestMapping("language")
 public class LanguageController {
 
+	Logger logger = LoggerFactory.getLogger(LanguageController.class);
+	
 	@Autowired
 	private LanguageRepository languageRepository;
 	
@@ -26,7 +30,7 @@ public class LanguageController {
 	@RequestMapping
 	public List<Language> getAllLanguages() {
 		List<Language> records = (List<Language>) languageRepository.findAll();
-		records.forEach(System.out::println);
+		records.forEach((l) -> {logger.info(l.toString());});
 		return records;
 	}
 	
