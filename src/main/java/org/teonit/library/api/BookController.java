@@ -2,6 +2,8 @@ package org.teonit.library.api;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +15,14 @@ import org.teonit.library.domain.Organization;
 import org.teonit.library.repositories.BookRepository;
 import org.teonit.library.repositories.LanguageRepository;
 import org.teonit.library.repositories.OrganizationRepository;
+import org.teonit.library.test.mySingleton;
 
 @RestController
 @RequestMapping("book")
 public class BookController {
+	
+	Logger logger = LoggerFactory.getLogger(BookController.class);
+	
 
 	@Autowired
 	BookRepository bookRepository;
@@ -30,7 +36,9 @@ public class BookController {
 	@RequestMapping
 	public List<Book> findAllBooks() {
 		Iterable<Book> books = bookRepository.findAll();
-		books.forEach(System.out::println);
+		if(logger.isInfoEnabled()) {
+			books.forEach((b) -> {logger.info(b.toString());});
+		}		
 		return (List<Book>) books;
 	}
 	
