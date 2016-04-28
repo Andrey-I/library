@@ -21,7 +21,7 @@
 			<name>Andrii Garnagin</name>
 			<email>garnagin@gmail.com</email>
 		</developer>
-		
+
 	</developers>
 
 	<properties>
@@ -93,6 +93,11 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.3</version>
 		</dependency>
 		<!-- others -->
 		<!-- Testing -->

@@ -31,7 +31,7 @@ public class Book {
 	private Organization publisher;
 
 	@ManyToOne
-	private Language inLanguage;
+	private Language language;
 
 	private Long numberOfPages;
 	

@@ -15,7 +15,6 @@ import org.teonit.library.domain.Organization;
 import org.teonit.library.repositories.BookRepository;
 import org.teonit.library.repositories.LanguageRepository;
 import org.teonit.library.repositories.OrganizationRepository;
-import org.teonit.library.test.mySingleton;
 
 @RestController
 @RequestMapping("book")

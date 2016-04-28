@@ -76,7 +76,7 @@ public class BookRepositoryTest {
 		;
 		assertEquals(4, bookCount);
 	}
-
+/*
 	@Test
 	public void testFindByName() {
 		Iterable<Book> books = bookRepository.findByNameContaining("Verdi");
@@ -93,5 +93,5 @@ public class BookRepositoryTest {
 		;
 		assertEquals(1, bookCount);
 	}
-
+*/
 }
