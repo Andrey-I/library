@@ -1,8 +1,9 @@
 package org.teonit.library.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * This class represents Book.
@@ -12,10 +13,10 @@ import org.neo4j.ogm.annotation.Relationship;
  * @author Andrii Iakovenko
  *
  */
-@NodeEntity
+@Entity
 public class Book {
 
-	@GraphId
+	@Id @GeneratedValue
 	private Long id;
 
 	private String isbn;
@@ -26,10 +27,10 @@ public class Book {
 
 	private String description;
 
-	@Relationship(type = "PUBLISHER", direction = Relationship.UNDIRECTED)
+	@ManyToOne
 	private Organization publisher;
 
-	@Relationship(type = "LANGUAGE", direction = Relationship.UNDIRECTED)
+	@ManyToOne
 	private Language inLanguage;
 
 	private Long numberOfPages;

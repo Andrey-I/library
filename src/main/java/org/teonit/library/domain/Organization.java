@@ -1,7 +1,8 @@
 package org.teonit.library.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * This class represents organization such as a school, NGO, corporation, club,
@@ -13,10 +14,11 @@ import org.neo4j.ogm.annotation.NodeEntity;
  * @author Andrii Iakovenko
  *
  */
-@NodeEntity
+@Entity
 public class Organization {
 
-	@GraphId
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	private String name;

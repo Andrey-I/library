@@ -1,7 +1,9 @@
 package org.teonit.library.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 
 /**
  * A person (alive, dead, undead, or fictional).
@@ -11,10 +13,11 @@ import org.neo4j.ogm.annotation.NodeEntity;
  * @author Andrii Iakovenko
  *
  */
-@NodeEntity
+@Entity
 public class Person {
 
-	@GraphId
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	private String name;

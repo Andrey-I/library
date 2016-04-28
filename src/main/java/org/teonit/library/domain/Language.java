@@ -1,7 +1,8 @@
 package org.teonit.library.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -11,11 +12,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author Andrii Iakovenko
  *
  */
-@NodeEntity
+@Entity
 public class Language {
 
-	@GraphId
+	@Id
 	@JsonIgnore
+	@GeneratedValue
 	private Long id;
 	
 	private String code;

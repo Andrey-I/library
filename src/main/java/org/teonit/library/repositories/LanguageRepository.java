@@ -1,6 +1,6 @@
 package org.teonit.library.repositories;
 
-import org.springframework.data.neo4j.repository.GraphRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.teonit.library.domain.Language;
 
 /**
@@ -9,7 +9,7 @@ import org.teonit.library.domain.Language;
  * @author Andrii Iakovenko
  *
  */
-public interface LanguageRepository extends GraphRepository<Language> {
+public interface LanguageRepository extends JpaRepository<Language, Long> {
 	
 	Language findOneByCode(String code);
 
