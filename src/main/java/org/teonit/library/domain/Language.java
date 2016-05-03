@@ -1,8 +1,11 @@
 package org.teonit.library.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,15 +16,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  *
  */
 @Entity
+@SequenceGenerator(name="language_id", sequenceName="language_id_seq", allocationSize=1)
 public class Language {
 
 	@Id
 	@JsonIgnore
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="language_id")
 	private Long id;
 	
+	@Column(length=3, nullable=false)
 	private String code;
-
+	
 	private String name;
 
 	/**

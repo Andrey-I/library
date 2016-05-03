@@ -1,21 +1,24 @@
 package org.teonit.library.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:library.properties")
 public class TestApplicationConfig extends DataConfig {
-
-	/*
+	
 	@Bean
-	public org.neo4j.ogm.config.Configuration getConfiguration() {
-		org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
-	   config
-	       .driverConfiguration()
-	       .setDriverClassName("org.neo4j.ogm.drivers.embedded.driver.EmbeddedDriver");
-	   return config;
+	DataSource dataSource() {
+	    EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+	    EmbeddedDatabase db = builder.build();
+		return db;
 	}
-*/
 
 }

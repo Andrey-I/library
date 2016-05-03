@@ -25,11 +25,7 @@ public class OrganizationController {
 	
 	@RequestMapping
 	public List<Organization> getAllOrganizations() {
-		List<Organization> records = (List<Organization>) organizationRepository.findAll();
-		for(Organization item : records) {
-			System.out.println(item);
-		}
-		return records;
+		return organizationRepository.findAll();
 	}
 	
 	@RequestMapping(path = "{name}", method=RequestMethod.DELETE)

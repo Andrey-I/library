@@ -2,8 +2,10 @@ package org.teonit.library.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  * This class represents Book.
@@ -14,9 +16,11 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
+@SequenceGenerator(name="book_id", sequenceName="book_id_seq", allocationSize=1)
 public class Book {
 
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="book_id")
 	private Long id;
 
 	private String isbn;
@@ -136,19 +140,21 @@ public class Book {
 	}
 
 	/**
-	 * @return the inLanguage
+	 * @return the Language
 	 */
-	public Language getInLanguage() {
-		return inLanguage;
-	}
 
+	public Language getLanguage() {
+		return language;
+	}
+	
 	/**
-	 * @param inLanguage the inLanguage to set
+	 * @param language the Language to set
 	 */
-	public void setInLanguage(Language inLanguage) {
-		this.inLanguage = inLanguage;
-	}
 
+	public void setLanguage(Language language) {
+		this.language = language;
+	}
+	
 	/**
 	 * @return the numberOfPages
 	 */
@@ -166,7 +172,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", isbn=" + isbn + ", name=" + name + ", url=" + url + ", description=" + description
-				+ ", publisher=" + publisher + ", inLanguage=" + inLanguage + ", numberOfPages=" + numberOfPages + "]";
+				+ ", publisher=" + publisher + ", Language=" + language + ", numberOfPages=" + numberOfPages + "]";
 	}
 
 	

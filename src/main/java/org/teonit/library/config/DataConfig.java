@@ -3,6 +3,7 @@ package org.teonit.library.config;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +28,7 @@ public class DataConfig  {
 	Environment env;
 	
 	@Bean
-	DriverManagerDataSource dataSource() {
+	DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(env.getProperty("jdbc.url"));
@@ -60,6 +61,12 @@ public class DataConfig  {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		properties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
+		properties.setProperty("hibernate.use_sql_comments", env.getProperty("hibernate.use_sql_comments"));
+		System.out.println("+++++++++++++++++++++++++++++++");
+		properties.forEach((k,v)-> {System.out.println(k + " : " + v);});
+		System.out.println("+++++++++++++++++++++++++++++++");
 		return properties;
 	}
 

@@ -2,7 +2,9 @@ package org.teonit.library.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  * This class represents organization such as a school, NGO, corporation, club,
@@ -15,10 +17,12 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@SequenceGenerator(name="organization_id", sequenceName="organization_id_seq", allocationSize=1)
 public class Organization {
 
-	@Id
-	@GeneratedValue
+	@Id	
+	
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="organization_id")
 	private Long id;
 
 	private String name;

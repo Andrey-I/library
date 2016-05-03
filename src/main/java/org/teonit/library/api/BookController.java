@@ -34,21 +34,17 @@ public class BookController {
 	
 	@RequestMapping
 	public List<Book> findAllBooks() {
-		Iterable<Book> books = bookRepository.findAll();
-		if(logger.isInfoEnabled()) {
-			books.forEach((b) -> {logger.info(b.toString());});
-		}		
-		return (List<Book>) books;
+		return bookRepository.findAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public void createBook(@RequestBody Book book) {
-		Language language = languageRepository.findOneByCode(book.getInLanguage().getCode());
+		Language language = languageRepository.findOneByCode(book.getLanguage().getCode());
 		Organization organization = organizationRepository.findByName(book.getPublisher().getName());
 		if(language != null) {
-			book.setInLanguage(language);
+			book.setLanguage(language);
 		} else {
-			book.setInLanguage(null);
+			book.setLanguage(null);
 		}
 		if(organization != null)
 			book.setPublisher(organization);

@@ -29,9 +29,7 @@ public class LanguageController  {
 	
 	@RequestMapping
 	public List<Language> getAllLanguages() {
-		List<Language> records = (List<Language>) languageRepository.findAll();
-		records.forEach((l) -> {logger.info(l.toString());});
-		return records;
+		return languageRepository.findAll();
 	}
 	
 	@RequestMapping(path = "{languageCode}", method=RequestMethod.DELETE)

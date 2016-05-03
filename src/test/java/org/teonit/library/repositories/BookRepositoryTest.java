@@ -3,6 +3,8 @@ package org.teonit.library.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,33 +25,39 @@ public class BookRepositoryTest {
 
 	@Autowired
 	private BookRepository bookRepository;
+	@Autowired
+	private LanguageRepository languageRepository;
+	@Autowired
+	private OrganizationRepository organizationRepository;
 
 	@Before
 	@Rollback(false)
 	public void setUp() {
 		Language en = new Language("en", "English");
-		Language ua = new Language("ua", "Ukrainian");
+		Language ua = new Language("uk", "Ukrainian");
+		languageRepository.save(Arrays.asList(en, ua));
 
 		Organization dummyPub = new Organization("Dummy Publishing");
 		Organization happyPub = new Organization("Happy Publishing");
+		organizationRepository.save(Arrays.asList(dummyPub, happyPub));
 
 		Book book = new Book("Romeo and Juliet");
-		book.setInLanguage(en);
+		book.setLanguage(en);
 		book.setPublisher(happyPub);
 		bookRepository.save(book);
 
 		book = new Book("Giuseppe Verdi");
-		book.setInLanguage(en);
+		book.setLanguage(en);
 		book.setPublisher(happyPub);
 		bookRepository.save(book);
 
 		book = new Book("Dummy Books");
-		book.setInLanguage(en);
+		book.setLanguage(en);
 		book.setPublisher(dummyPub);
 		bookRepository.save(book);
 
 		book = new Book("Кобзар");
-		book.setInLanguage(ua);
+		book.setLanguage(ua);
 		book.setPublisher(happyPub);
 		bookRepository.save(book);
 	}
@@ -68,7 +76,7 @@ public class BookRepositoryTest {
 		for (Book book : books) {
 			assertNotNull(book.getId());
 			assertNotNull(book.getName());
-			assertNotNull(book.getInLanguage());
+			assertNotNull(book.getLanguage());
 			assertNotNull(book.getPublisher());
 
 			bookCount++;

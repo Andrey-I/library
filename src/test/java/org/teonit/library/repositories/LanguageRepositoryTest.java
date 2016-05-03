@@ -26,7 +26,7 @@ public class LanguageRepositoryTest {
 	@Rollback(false)
 	public void setUp() {
 		languageRepository.save(new Language("en", "English"));
-		languageRepository.save(new Language("ua", "Ukrainian"));
+		languageRepository.save(new Language("uk", "Ukrainian"));
 		languageRepository.save(new Language("pl", "Poland"));
 	}
 	
