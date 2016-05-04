@@ -1,9 +1,12 @@
 package org.teonit.library.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 /**
  * A person (alive, dead, undead, or fictional).
@@ -13,30 +16,26 @@ import javax.persistence.Id;
  * @author Andrii Iakovenko
  *
  */
-@Entity
+@MappedSuperclass
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Person {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="person_id")
 	private Long id;
 
+	@Column(unique=true, nullable = false)
 	private String name;
 
 	private String givenName;
 
 	private String familyName;
 
-	/**
-	 * @return the id
-	 */
+
 	public Long getId() {
 		return id;
 	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

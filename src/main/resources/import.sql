@@ -1,0 +1,3 @@
+--insert into role values (nextval('role_id_seq'),'ADMIN');
+--insert into library_user values (nextval('user_id_seq'),);
+--insert into library_user_role values (select);

@@ -1,16 +1,25 @@
 package org.teonit.library.domain;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="library_user")
+@SequenceGenerator(name="person_id", sequenceName="person_id_seq", allocationSize=1)
 public class User extends Person {
+
 
 	private String password;
 
-	private String passwordSalt;
-
 	private Boolean active;
-
+	
+	@OneToMany(mappedBy="roleId.user")
+	private Set<UserRole> roles;
+	
 	/**
 	 * @return the password
 	 */
@@ -27,21 +36,6 @@ public class User extends Person {
 	}
 
 	/**
-	 * @return the passwordSalt
-	 */
-	public String getPasswordSalt() {
-		return passwordSalt;
-	}
-
-	/**
-	 * @param passwordSalt
-	 *            the passwordSalt to set
-	 */
-	public void setPasswordSalt(String passwordSalt) {
-		this.passwordSalt = passwordSalt;
-	}
-
-	/**
 	 * @return the active
 	 */
 	public Boolean getActive() {
@@ -54,5 +48,13 @@ public class User extends Person {
 	 */
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+	
+	public Set<UserRole> getRoles() {
+		return roles;
+	}
+	
+	public void addRole(UserRole role) {
+		roles.add(role);
 	}
 }

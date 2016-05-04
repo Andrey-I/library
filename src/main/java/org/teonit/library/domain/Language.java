@@ -24,7 +24,7 @@ public class Language {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="language_id")
 	private Long id;
 	
-	@Column(length=3, nullable=false)
+	@Column(length=3, nullable=false, unique=true)
 	private String code;
 	
 	private String name;

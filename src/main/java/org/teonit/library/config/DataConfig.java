@@ -64,9 +64,6 @@ public class DataConfig  {
 		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 		properties.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
 		properties.setProperty("hibernate.use_sql_comments", env.getProperty("hibernate.use_sql_comments"));
-		System.out.println("+++++++++++++++++++++++++++++++");
-		properties.forEach((k,v)-> {System.out.println(k + " : " + v);});
-		System.out.println("+++++++++++++++++++++++++++++++");
 		return properties;
 	}
 

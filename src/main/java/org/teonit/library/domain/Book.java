@@ -1,5 +1,6 @@
 package org.teonit.library.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Book {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="book_id")
 	private Long id;
 
+	@Column(unique=true)
 	private String isbn;
 	
 	private String name;
